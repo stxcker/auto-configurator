@@ -19,7 +19,7 @@ local direction = ui.reference( "Misc", "Movement", "Air strafe direction" )
 
 client.set_event_callback( "aim_miss", function( event_data )
 	if event_data.reason == "spread" then
-		if ui.get( hitchance ) < 80 then
+		if ui.get( hitchance ) < 84 then
 			ui.set( hitchance, ui.get( hitchance ) + 2 )
 		else
 			if ui.get( pointscale ) > 25 then
