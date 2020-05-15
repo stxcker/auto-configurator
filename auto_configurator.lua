@@ -107,12 +107,10 @@ client.set_event_callback( "aim_miss", function( event_data )
 		end
 	end
 	if event_data.reason == "?" then
-		client.log( group )
 		total_hitgroup_misses[ group ] = total_hitgroup_misses[ group ] + 1
 		if group == "left arm" or group == "right arm" or group == "left leg" or group == "right leg" then
 			limb_miss_percentage = ( total_hitgroup_misses[ "left arm" ] + total_hitgroup_misses[ "right arm" ] + total_hitgroup_misses[ "left leg" ] + total_hitgroup_misses[ "right leg" ] ) / ( total_hitgroup_shots[ "left arm" ] + total_hitgroup_shots[ "right arm" ] + total_hitgroup_shots[ "left leg" ] + total_hitgroup_shots[ "right leg" ] )
 			limb_miss_percentage = limb_miss_percentage * 100
-			client.log( limb_miss_percentage.."%" )
 			if ( total_hitgroup_shots[ "left arm" ] + total_hitgroup_shots[ "right arm" ] + total_hitgroup_shots[ "left leg" ] + total_hitgroup_shots[ "right leg" ] ) > 10 and limb_miss_percentage >= 66.66 then
 				ui.set( limbsafepoint, true )
 			end
