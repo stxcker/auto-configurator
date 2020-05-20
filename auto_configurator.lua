@@ -13,6 +13,7 @@ local norecoil = ui.reference( "Rage", "Other", "Remove recoil" )
 local resolver = ui.reference( "Rage", "Other", "Anti-aim correction" )
 local preferbaim = ui.reference( "Rage", "Other", "Prefer body aim" )
 local disablers = ui.reference( "Rage", "Other", "Prefer body aim disablers" )
+local fakeduck = ui.reference( "Rage", "Other", "Duck peek assist" )
 
 local fakelag = ui.reference( "AA", "Fake lag", "Enabled" )
 
@@ -87,7 +88,7 @@ end )
 
 client.set_event_callback( "aim_miss", function( event_data )
 	-- Spread miss handler
-	if event_data.reason == "spread" then
+	if event_data.reason == "spread" and not ui.get( fakeduck ) then
 		if ui.get( hitchance ) < 84 then
 			ui.set( hitchance, ui.get( hitchance ) + 2 )
 		else
