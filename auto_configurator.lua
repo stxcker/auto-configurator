@@ -126,7 +126,7 @@ client.set_event_callback( "aim_miss", function( event_data )
 				onshot_misses = onshot_misses + 1
 				onshot_miss_percentage = onshot_misses / onshot_shots
 				onshot_miss_percentage = onshot_miss_percentage * 100
-				if onshot_shots > 10 and limb_miss_percentage >= 66.66 then
+				if onshot_shots > 10 and onshot_miss_percentage >= 66.66 then
 					ui.set( preferbaim, true )
 					ui.set( disablers, "Target resolved", "Safe point headshot" )
 				end
